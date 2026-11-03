@@ -9,7 +9,7 @@ import type { Task } from '@/lib/reminders';
 import { IconCheck, IconWhatsapp } from './Icons';
 import { useToast } from './Toast';
 
-export default function TaskRow({ task, onDone }: { task: Task; onDone: () => void }) {
+export default function TaskRow({ task, index, onDone }: { task: Task; index?: number; onDone: () => void }) {
   const toast = useToast();
   const [busy, setBusy] = useState(false);
   const b = task.booking;
@@ -30,10 +30,10 @@ export default function TaskRow({ task, onDone }: { task: Task; onDone: () => vo
 
   return (
     <li className="item">
+      {index ? <div className="index-num num">{String(index).padStart(2, '0')}</div> : null}
       <div className="item-main">
-        <div className="row-wrap" style={{ alignItems: 'center' }}>
+        <div className="row-wrap" style={{ alignItems: 'center', columnGap: 10 }}>
           <span className="item-title">{KIND_LABEL[task.kind]}</span>
-          <span className="muted small">·</span>
           <Link href={`/reservas/${b.id}`} className="small" style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}>
             {b.clients?.name}
           </Link>
@@ -43,13 +43,13 @@ export default function TaskRow({ task, onDone }: { task: Task; onDone: () => vo
       </div>
       <div className="row">
         {url ? (
-          <a className="btn btn-wa btn-sm" href={url} target="_blank" rel="noreferrer" onClick={() => window.setTimeout(done, 400)} aria-disabled={busy}>
-            <IconWhatsapp /> Enviar
+          <a className="btn btn-wa btn-icon" href={url} target="_blank" rel="noreferrer" aria-label={`Enviar ${KIND_LABEL[task.kind]} por WhatsApp`} onClick={() => window.setTimeout(done, 400)} aria-disabled={busy}>
+            <IconWhatsapp />
           </a>
         ) : (
           <span className="tiny muted">Sin WhatsApp</span>
         )}
-        <button className="btn btn-ghost btn-sm" onClick={done} disabled={busy} title="Marcar como hecho sin enviar">
+        <button className="btn btn-ghost btn-icon" onClick={done} disabled={busy} title="Marcar como hecho sin enviar" aria-label="Marcar como hecho">
           <IconCheck />
         </button>
       </div>

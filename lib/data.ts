@@ -41,11 +41,13 @@ let seeding: Promise<unknown> | null = null;
 export function useServices(includeInactive = false) {
   const [data, setData] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const reload = useCallback(async () => {
     setLoading(true);
     const db = supabase();
-    let { data } = await db.from('services').select('*').order('sort').order('name');
+    let { data, error: err } = await db.from('services').select('*').order('sort').order('name');
+    setError(err ? err.message : null);
     if (data && data.length === 0) {
       seeding ??= Promise.resolve(db.from('services').insert(DEFAULT_SERVICES));
       await seeding;
@@ -60,7 +62,7 @@ export function useServices(includeInactive = false) {
     reload();
   }, [reload]);
 
-  return { data, loading, reload };
+  return { data, loading, error, reload };
 }
 
 /** Registra un mensaje como enviado (no falla si ya estaba registrado). */
