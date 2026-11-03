@@ -99,3 +99,10 @@ begin
          using (owner_id = auth.uid()) with check (owner_id = auth.uid())', t);
   end loop;
 end $$;
+
+-- ---------- Permisos para la app ----------
+-- Desde mayo de 2026 Supabase no da acceso automático a las tablas nuevas:
+-- sin esto la app no puede leer ni guardar servicios, clientas ni turnos.
+grant usage on schema public to authenticated, service_role;
+grant select, insert, update, delete on public.services, public.clients, public.bookings, public.message_log to authenticated;
+grant all on public.services, public.clients, public.bookings, public.message_log to service_role;

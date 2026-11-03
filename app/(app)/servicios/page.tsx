@@ -12,7 +12,7 @@ const EMPTY = { name: '', duration_min: '60', price_usd: '', has_trial: false, s
 export default function ServicesPage() {
   const toast = useToast();
   const router = useRouter();
-  const { data, loading, reload } = useServices(true);
+  const { data, loading, error, reload } = useServices(true);
   const [editing, setEditing] = useState<string | null>(null);
   const [form, setForm] = useState(EMPTY);
 
@@ -41,14 +41,15 @@ export default function ServicesPage() {
       editing === 'new'
         ? await db.insert({ ...payload, sort: (data.at(-1)?.sort ?? 0) + 1 })
         : await db.update(payload).eq('id', editing!);
-    if (error) return toast('No se pudo guardar');
+    if (error) return toast(`No se pudo guardar: ${error.message}`);
     toast('Servicio guardado');
     setEditing(null);
     reload();
   }
 
   async function toggle(s: Service) {
-    await supabase().from('services').update({ active: !s.active }).eq('id', s.id);
+    const { error } = await supabase().from('services').update({ active: !s.active }).eq('id', s.id);
+    if (error) toast(`No se pudo cambiar: ${error.message}`);
     reload();
   }
 
@@ -61,7 +62,7 @@ export default function ServicesPage() {
         </div>
         <div className="row">
           <button
-            className="btn btn-ghost mobile-only"
+            className="btn btn-ghost"
             onClick={async () => {
               await supabase().auth.signOut();
               router.replace('/login');
@@ -94,6 +95,8 @@ export default function ServicesPage() {
           </form>
         </section>
       )}
+
+      {error && <div className="alert alert-err">No se pudieron cargar los servicios: {error}</div>}
 
       <section className="card">
         {loading ? (
