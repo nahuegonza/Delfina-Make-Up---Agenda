@@ -1,0 +1,780 @@
+{
+ "photos": [
+  {
+   "id": "seed-portada",
+   "section": "portada",
+   "category": null,
+   "alt": "Delfina maquillando a una novia con brocha de rubor",
+   "base_path": "/seed/portada",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 2061,
+   "height": 2576,
+   "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoQABQAPu1kqk4ppaQiMAgBMB2JQBOmUFH/AWGpVxZcGvuk15gA/sMb4llT00NhdskGzLqvfkE/PM16MDvRAciB0/lAm4un6FW8iX8Qk23NUdnA3y4WivvCwO33D7OAAAA=",
+   "sort": 1,
+   "visible": true
+  },
+  {
+   "id": "seed-sobre-mi",
+   "section": "sobre_mi",
+   "category": null,
+   "alt": "Delfina Acuña, maquilladora profesional",
+   "base_path": "/seed/sobre-mi",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 1932,
+   "height": 2576,
+   "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoQABUAPu1kqU2ppaOiMAgBMB2JYwCdMoACKHzEV04yG/OwAP4WVrMQxU5p6gUKORATtqHxi2VxnG+4Lik22eHb0pNmPimWB5N9YmcKIZNbDNDUAUAAAA==",
+   "sort": 1,
+   "visible": true
+  },
+  {
+   "id": "seed-contacto",
+   "section": "contacto",
+   "category": null,
+   "alt": "",
+   "base_path": "/seed/contacto",
+   "widths": [
+    480,
+    960
+   ],
+   "width": 864,
+   "height": 1243,
+   "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwBACdASoQABcAPu1iqU2ppaOiMAgBMB2JYgCdMoMYAD1no3I8tISYGuVDgAD+u7pyKlN16YyACKRqeKs2/8WoQlvCeHHznj2tkyoCsgsxK7K6QOyqIW+0MeqcgJ24k90PFOJ7qZafQAAA",
+   "sort": 1,
+   "visible": true
+  },
+  {
+   "id": "seed-novia-velo",
+   "section": "portfolio",
+   "category": "novias",
+   "alt": "Novia con velo y piel luminosa",
+   "base_path": "/seed/novia-velo",
+   "widths": [
+    480,
+    960
+   ],
+   "width": 864,
+   "height": 1243,
+   "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwBACdASoQABcAPu1iqU2ppaOiMAgBMB2JYgCdMoMYAD1no3I8tISYGuVDgAD+u7pyKlN16YyACKRqeKs2/8WoQlvCeHHznj2tkyoCsgsxK7K6QOyqIW+0MeqcgJ24k90PFOJ7qZafQAAA",
+   "sort": 1,
+   "visible": true
+  },
+  {
+   "id": "seed-fiesta",
+   "section": "portfolio",
+   "category": "social",
+   "alt": "Maquillaje de fiesta con ojos ahumados",
+   "base_path": "/seed/fiesta",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 1200,
+   "height": 1600,
+   "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JQBWGUABe8kpEpcRmB36aqAD99pIGQekwvVB9vLxmaqFE2L5gej/hkQXMreSn1wd9iTQaT5Nrg5/dtTm4wQqaXiAVNswA",
+   "sort": 2,
+   "visible": true
+  },
+  {
+   "id": "seed-blazer-bordo",
+   "section": "portfolio",
+   "category": "editorial",
+   "alt": "Producción editorial con blazer bordó",
+   "base_path": "/seed/blazer-bordo",
+   "widths": [
+    480,
+    960
+   ],
+   "width": 827,
+   "height": 1280,
+   "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwAwCdASoQABkAPu1kqU2ppaQiMAgBMB2JQAAFrhv89myzxmgA2zUMOreqm++ysEGSFRXLUdoAUUCc6G73DAcnvZt1Ngrj1irudDlD5EoHgdh8yG/4fKoY+bam6eo0R4lTQBzdQqELuGAA",
+   "sort": 3,
+   "visible": true
+  },
+  {
+   "id": "seed-glow",
+   "section": "portfolio",
+   "category": "social",
+   "alt": "Maquillaje social con piel glow",
+   "base_path": "/seed/glow",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 1200,
+   "height": 1600,
+   "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JYgCdACBj9kZXwqSC2+1kGEI4AP7l8H1FpiFCU7zIMP2cZcPmCLtUgl50skZotY1P37wdoawHY6Mt/4sB5nNEbGv5dFp5z/Bvq2WYki90AAAA",
+   "sort": 4,
+   "visible": true
+  },
+  {
+   "id": "seed-brillos",
+   "section": "portfolio",
+   "category": "editorial",
+   "alt": "Editorial con brillos en los ojos",
+   "base_path": "/seed/brillos",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 1066,
+   "height": 1600,
+   "blur": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAwCdASoQABgAA4BaJYwCdITuGBv2UHqJtTvwsT71+UAA/vYMRNrrg3Ea/QQlEwEhjEvdUjFXM+qeS8hqoEci2om1bM4N3Z1p6s4/VfSDKIHMqOSdq5/K6Z3OZRCGB0Y1/lBi2QAAAA==",
+   "sort": 5,
+   "visible": true
+  },
+  {
+   "id": "seed-novia-full",
+   "section": "portfolio",
+   "category": "novias",
+   "alt": "Novia de cuerpo entero",
+   "base_path": "/seed/novia-full",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 3361,
+   "height": 5041,
+   "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABwAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JZwC2yC0KTNwbsIAA/uyvRlWnyXv8iYYdMs7ffF4xKw7OzWuHAAAA",
+   "sort": 6,
+   "visible": true
+  },
+  {
+   "id": "seed-egresada",
+   "section": "portfolio",
+   "category": "egresadas",
+   "alt": "Maquillaje de egresada",
+   "base_path": "/seed/egresada",
+   "widths": [
+    480,
+    960
+   ],
+   "width": 960,
+   "height": 1280,
+   "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABwBACdASoQABUAPu1oqk6ppiQiMAgBMB2JbACdMoR3JoABmYyY1Ahsy+u8AAD+w9dEPQzpD0Q0Dkt6moiD+emRql2vFAM6qsdWx8Q7SuYBmEpN8bCYWu3DKmAD9jNO/PlnN7V0FWr+722g1PE1GboIRTKBYBIAAAA=",
+   "sort": 7,
+   "visible": true
+  },
+  {
+   "id": "seed-labio-rojo",
+   "section": "portfolio",
+   "category": "editorial",
+   "alt": "Labio rojo clásico",
+   "base_path": "/seed/labio-rojo",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 1200,
+   "height": 1600,
+   "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQBACdASoQABUAPu1kqk4ppaQiMAgBMB2JYgCw7CHgC6W+s1+98vW71AD+7UGRxCZmmkqHuwM8TDE7eoVn21VuWlV5z+ztbVID2eD8zvRnAbiUtvN1wFg7mxTv4C+2AAA=",
+   "sort": 8,
+   "visible": true
+  },
+  {
+   "id": "seed-rubor",
+   "section": "portfolio",
+   "category": "social",
+   "alt": "Rubor rosado y piel luminosa",
+   "base_path": "/seed/rubor",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 1200,
+   "height": 1600,
+   "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACQBACdASoQABUAPu1iqU2ppaQiMAgBMB2JQBOmUFH/tUABeZeV7xAJiafLCwAA/tOTcqB0uVr0FGHi0wIwZmpUplDs0JPXaw6wW2J/JFwAdwpT9Kd/Vg7I4pitLadS2+BnmabtndjaOVz89EPCfmmTx9x3ntoJMCgAAA==",
+   "sort": 9,
+   "visible": true
+  },
+  {
+   "id": "seed-grupo",
+   "section": "portfolio",
+   "category": "editorial",
+   "alt": "Producción grupal",
+   "base_path": "/seed/grupo",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 1066,
+   "height": 1600,
+   "blur": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABwBACdASoQABgAPu1kqU2ppaQiMAgBMB2JYwCdABopcob21O9jgW9Q88CIAAD+1bkWLZQsCPVLt93QM0VjtYzVQNHQRKF4ikOZ0KmCGiX9eUhDY7LYZ3vLbgPEPtG5rhw5KVKbOEdvScaHGu8/IShe8ABxZ7OAAAA=",
+   "sort": 10,
+   "visible": true
+  },
+  {
+   "id": "seed-sonrisa",
+   "section": "portfolio",
+   "category": "social",
+   "alt": "Maquillaje social con sonrisa",
+   "base_path": "/seed/sonrisa",
+   "widths": [
+    480,
+    960
+   ],
+   "width": 960,
+   "height": 1280,
+   "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoQABUAPu1kqU2ppaOiMAgBMB2JZgCw7Bu1ZRVd2BQrAcp6QAD9zaQS2uJUaUEWUema4q2xdI2taQYTgQ9FbFwyAMypZDWE/+Z4MkcxA0iDPjF9dKwFlTA4sEZVI3Wj8XzC4JAAAAA=",
+   "sort": 11,
+   "visible": true
+  },
+  {
+   "id": "seed-rulos",
+   "section": "portfolio",
+   "category": "editorial",
+   "alt": "Editorial con rulos",
+   "base_path": "/seed/rulos",
+   "widths": [
+    480,
+    960,
+    1600
+   ],
+   "width": 2773,
+   "height": 4160,
+   "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADQAwCdASoQABgALrV2u12jqampiYC0SgC7ADdlbJZMbnB++ifxEwAA/vHgo2F2t1FpPH+Or3S6i+g9NogQ9jNq4Bnus+ulxS0MsqHh2hRVY3VHEqLWvc1Km8KCzZxNRUfJfGXj/kB6/Q4q/9nXgAAA",
+   "sort": 12,
+   "visible": true
+  },
+  {
+   "id": "seed-blazer-negro",
+   "section": "portfolio",
+   "category": "editorial",
+   "alt": "Look editorial con blazer negro",
+   "base_path": "/seed/blazer-negro",
+   "widths": [
+    480,
+    960
+   ],
+   "width": 960,
+   "height": 1280,
+   "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoQABUAPu1iqU2ppaQiMAgBMB2JYwCdABhB3KxPqwzGnqwA/rMgK5qWZjRf/FHWybviNqCcIvBiv/1zdpabaBYK2mIhiyYayUjmgrhnNvQcIuHALDWpOKUxMHmTpxegAAA=",
+   "sort": 13,
+   "visible": true
+  },
+  {
+   "id": "seed-maletin-set",
+   "section": "maletin",
+   "category": null,
+   "alt": "Los dos maletines de maquillaje abiertos sobre una mesa",
+   "base_path": "/seed/maletin-set",
+   "widths": [
+    480,
+    960
+   ],
+   "width": 960,
+   "height": 896,
+   "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoQAA8AA4BaJYwC7AEfvAy//nuSGAD+aMdpgv9CLDIKtu1Wpq9JfqW334daOt8/3ZJNvR7KCKbKAZGPQ/8uURrsY7EAAA==",
+   "sort": 1,
+   "visible": true
+  },
+  {
+   "id": "seed-maletin-tapa",
+   "section": "maletin",
+   "category": null,
+   "alt": "Tapa del maletín con lápices y compartimento de bases",
+   "base_path": "/seed/maletin-tapa",
+   "widths": [
+    480,
+    960
+   ],
+   "width": 960,
+   "height": 1024,
+   "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoQABEAPu1iqU2ppaOiMAgBMB2JZgCdL1FxbAOqinKRBj1rwAD9bya7lyRElXRJgh4yMEe1bau9HzB/traplJaGhL4mPmGFjRdaH4xAgOjRjZMEH8fyMIAA",
+   "sort": 2,
+   "visible": true
+  },
+  {
+   "id": "seed-maletin-labios",
+   "section": "maletin",
+   "category": null,
+   "alt": "Correctores, polvo, rubores y labiales",
+   "base_path": "/seed/maletin-labios",
+   "widths": [
+    480,
+    960
+   ],
+   "width": 960,
+   "height": 1280,
+   "blur": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JZACdABlz9SAlXeCiuAzsAP5USouqnxnfj6Yd/toSuHVUcsGZZhZVJ7UX6oYbc1x5O3SDqdB2Y5uqgUtItBLw9ryTWr9RK21ayjS1lo3Aiez/1GGSm+Iskm8AAA==",
+   "sort": 3,
+   "visible": true
+  }
+ ],
+ "services": [
+  {
+   "id": "seed-svc-1",
+   "title": "Novias & quinceañeras",
+   "eyebrow": "Más pedido",
+   "description": "Acompañamiento integral con prueba previa de 3 horas, para que el día llegue con un maquillaje que se sienta tuyo.",
+   "duration_label": "2 h mín.",
+   "price_prefix": "desde",
+   "price_label": "USD 250",
+   "featured": true,
+   "sort": 1,
+   "visible": true
+  },
+  {
+   "id": "seed-svc-2",
+   "title": "Maquillaje social",
+   "eyebrow": "Fiestas y eventos",
+   "description": "Fiestas, cumpleaños y reuniones. Fresco, luminoso y pensado para durar toda la noche.",
+   "duration_label": "1 h",
+   "price_prefix": "desde",
+   "price_label": "USD 100",
+   "featured": false,
+   "sort": 2,
+   "visible": true
+  },
+  {
+   "id": "seed-svc-3",
+   "title": "Social + peinado",
+   "eyebrow": "Look completo",
+   "description": "Maquillaje y peinado en tu casa, para salir lista sin moverte.",
+   "duration_label": "2 h",
+   "price_prefix": null,
+   "price_label": "USD 150",
+   "featured": false,
+   "sort": 3,
+   "visible": true
+  },
+  {
+   "id": "seed-svc-4",
+   "title": "Egresadas",
+   "eyebrow": "Fiesta de egresados",
+   "description": "Un look que acompañe toda la noche y se vea increíble en las fotos.",
+   "duration_label": "1 h",
+   "price_prefix": null,
+   "price_label": "USD 60",
+   "featured": false,
+   "sort": 4,
+   "visible": true
+  },
+  {
+   "id": "seed-svc-5",
+   "title": "Clase de automaquillaje",
+   "eyebrow": "Aprendé a hacerlo",
+   "description": "Técnicas, productos y trucos adaptados a tu rostro y estilo de vida, con tus propios productos.",
+   "duration_label": "1 o 2 h",
+   "price_prefix": null,
+   "price_label": "Consultar",
+   "featured": false,
+   "sort": 5,
+   "visible": true
+  },
+  {
+   "id": "seed-svc-6",
+   "title": "Diseño de cejas",
+   "eyebrow": "Mirada definida",
+   "description": "Diseño según la morfología de tu rostro, para cejas naturales, definidas y armónicas.",
+   "duration_label": "40 min",
+   "price_prefix": null,
+   "price_label": "Consultar",
+   "featured": false,
+   "sort": 6,
+   "visible": true
+  }
+ ],
+ "scenes": [
+  {
+   "id": "seed-scene-set",
+   "label": "El set completo",
+   "hint": "Los dos maletines abiertos, como llego a tu casa",
+   "photo_id": "seed-maletin-set",
+   "sort": 1,
+   "visible": true
+  },
+  {
+   "id": "seed-scene-tapa",
+   "label": "Lápices y bases",
+   "hint": "La tapa con lápices y el compartimento de piel",
+   "photo_id": "seed-maletin-tapa",
+   "sort": 2,
+   "visible": true
+  },
+  {
+   "id": "seed-scene-labios",
+   "label": "Labios y color",
+   "hint": "Correctores, polvos, rubores y labiales",
+   "photo_id": "seed-maletin-labios",
+   "sort": 3,
+   "visible": true
+  }
+ ],
+ "items": [
+  {
+   "id": "seed-item-s1",
+   "scene_id": "seed-scene-set",
+   "x": 22,
+   "y": 23,
+   "category": "Herramientas",
+   "brand": "Varias marcas",
+   "name": "Set de brochas",
+   "use_text": "Brochas de rostro y de ojos: polvo, rubor, contorno, iluminador y difuminado de sombras.",
+   "tip": "Una brocha distinta para cada producto evita que los colores se mezclen y el acabado queda más limpio.",
+   "sort": 1
+  },
+  {
+   "id": "seed-item-s2",
+   "scene_id": "seed-scene-set",
+   "x": 45,
+   "y": 20,
+   "category": "Herramientas",
+   "brand": "Accesorios",
+   "name": "Pinzas separadoras",
+   "use_text": "Sostienen el pelo lejos de la cara mientras trabajo, para que nada toque la piel recién preparada.",
+   "tip": "Si vas a peinarte después, avisame y te maquillo con el pelo recogido para no arruinar el brushing.",
+   "sort": 2
+  },
+  {
+   "id": "seed-item-s3",
+   "scene_id": "seed-scene-set",
+   "x": 37,
+   "y": 44,
+   "category": "Preparación",
+   "brand": "Skincare",
+   "name": "Preparación de la piel",
+   "use_text": "Hidratante, sérum y primer. Es el paso que hace que la base se vea como piel y dure toda la noche.",
+   "tip": "El día del evento llegá con la cara limpia y sin cremas pesadas: del resto me encargo yo.",
+   "sort": 3
+  },
+  {
+   "id": "seed-item-s4",
+   "scene_id": "seed-scene-set",
+   "x": 80,
+   "y": 51,
+   "category": "Ojos",
+   "brand": "Anastasia Beverly Hills",
+   "name": "Paleta Soft Glam",
+   "use_text": "Tonos tierra, rosados y bronce para ojos naturales o un ahumado suave.",
+   "tip": "Los mates de esta paleta sirven también para dar profundidad a las cejas.",
+   "sort": 4
+  },
+  {
+   "id": "seed-item-s5",
+   "scene_id": "seed-scene-set",
+   "x": 11,
+   "y": 60,
+   "category": "Preparación",
+   "brand": "Garnier SkinActive",
+   "name": "Agua micelar",
+   "use_text": "Limpia la piel antes de empezar y me permite corregir detalles sin arrastrar el maquillaje.",
+   "tip": "Es ideal para desmaquillarte al volver del evento, sin frotar.",
+   "sort": 5
+  },
+  {
+   "id": "seed-item-s6",
+   "scene_id": "seed-scene-set",
+   "x": 52,
+   "y": 63,
+   "category": "Herramientas",
+   "brand": "Descartables",
+   "name": "Caja de descartables",
+   "use_text": "Algodones, hisopos y aplicadores de un solo uso para cada clienta.",
+   "tip": "",
+   "sort": 6
+  },
+  {
+   "id": "seed-item-s7",
+   "scene_id": "seed-scene-set",
+   "x": 36,
+   "y": 77,
+   "category": "Piel",
+   "brand": "Esponjas",
+   "name": "Esponjas de maquillaje",
+   "use_text": "Funden la base y el corrector con la piel para un acabado natural, sin marcas.",
+   "tip": "Húmeda rinde mejor: la base queda más liviana y luminosa.",
+   "sort": 7
+  },
+  {
+   "id": "seed-item-s8",
+   "scene_id": "seed-scene-set",
+   "x": 46,
+   "y": 90,
+   "category": "Piel",
+   "brand": "Real Techniques",
+   "name": "Brocha de base",
+   "use_text": "Aplica la base de forma pareja y rápida en zonas amplias.",
+   "tip": "",
+   "sort": 8
+  },
+  {
+   "id": "seed-item-t1",
+   "scene_id": "seed-scene-tapa",
+   "x": 11,
+   "y": 10,
+   "category": "Ojos",
+   "brand": "Pestañas",
+   "name": "Pegamento de pestañas",
+   "use_text": "Para colocar pestañas postizas o individuales cuando el look lo pide.",
+   "tip": "En novias uso pestañas individuales: abren la mirada sin verse artificiales.",
+   "sort": 1
+  },
+  {
+   "id": "seed-item-t2",
+   "scene_id": "seed-scene-tapa",
+   "x": 23,
+   "y": 21,
+   "category": "Cejas",
+   "brand": "Varias marcas",
+   "name": "Lápices de cejas",
+   "use_text": "Rellenan y definen la ceja pelo a pelo, en distintos tonos según tu color natural.",
+   "tip": "",
+   "sort": 2
+  },
+  {
+   "id": "seed-item-t3",
+   "scene_id": "seed-scene-tapa",
+   "x": 35,
+   "y": 23,
+   "category": "Labios",
+   "brand": "Varias marcas",
+   "name": "Delineadores de labios",
+   "use_text": "Definen el contorno y hacen que el labial dure más sin correrse.",
+   "tip": "Un delineador un tono más oscuro que tu labio da volumen sin exagerar.",
+   "sort": 3
+  },
+  {
+   "id": "seed-item-t4",
+   "scene_id": "seed-scene-tapa",
+   "x": 59,
+   "y": 23,
+   "category": "Ojos",
+   "brand": "KIKO Milano",
+   "name": "Lápices de ojos",
+   "use_text": "Delineados, tightline y color en la línea de agua.",
+   "tip": "",
+   "sort": 4
+  },
+  {
+   "id": "seed-item-t5",
+   "scene_id": "seed-scene-tapa",
+   "x": 14,
+   "y": 66,
+   "category": "Ojos",
+   "brand": "Anastasia Beverly Hills",
+   "name": "Paleta Soft Glam",
+   "use_text": "Mi paleta de cabecera para ojos: tonos tierra que favorecen a casi todos los colores de ojos.",
+   "tip": "",
+   "sort": 5
+  },
+  {
+   "id": "seed-item-t6",
+   "scene_id": "seed-scene-tapa",
+   "x": 47,
+   "y": 55,
+   "category": "Piel",
+   "brand": "[confirmar marca]",
+   "name": "Swipe Serum Concealer",
+   "use_text": "Corrector líquido para ojeras y pequeñas imperfecciones.",
+   "tip": "",
+   "sort": 6
+  },
+  {
+   "id": "seed-item-t7",
+   "scene_id": "seed-scene-tapa",
+   "x": 86,
+   "y": 66,
+   "category": "Piel",
+   "brand": "MAC",
+   "name": "Base Studio",
+   "use_text": "Base de cobertura media a alta y larga duración, ideal para fotos y eventos largos.",
+   "tip": "La mezclo con otra base para llegar al tono exacto de cada piel.",
+   "sort": 7
+  },
+  {
+   "id": "seed-item-t8",
+   "scene_id": "seed-scene-tapa",
+   "x": 72,
+   "y": 82,
+   "category": "Labios",
+   "brand": "Varias marcas",
+   "name": "Labiales en barra",
+   "use_text": "Nudes, terracotas y rosados para terminar cada look.",
+   "tip": "",
+   "sort": 8
+  },
+  {
+   "id": "seed-item-l1",
+   "scene_id": "seed-scene-labios",
+   "x": 25,
+   "y": 25,
+   "category": "Piel",
+   "brand": "NYX Professional Makeup",
+   "name": "Color Correcting Concealer",
+   "use_text": "Correctores de color: el verde neutraliza rojeces, el durazno las ojeras y el lila el tono amarillento.",
+   "tip": "Se usa muy poquito y siempre debajo de la base.",
+   "sort": 1
+  },
+  {
+   "id": "seed-item-l2",
+   "scene_id": "seed-scene-labios",
+   "x": 52,
+   "y": 10,
+   "category": "Piel",
+   "brand": "NYX Professional Makeup",
+   "name": "Conceal Correct Contour",
+   "use_text": "Cremas para corregir, iluminar y contornear el rostro.",
+   "tip": "",
+   "sort": 2
+  },
+  {
+   "id": "seed-item-l3",
+   "scene_id": "seed-scene-labios",
+   "x": 62,
+   "y": 24,
+   "category": "Piel",
+   "brand": "Givenchy",
+   "name": "Prisme Libre",
+   "use_text": "Polvo suelto para sellar el maquillaje y controlar el brillo sin apagar la piel.",
+   "tip": "Lo aplico solo en la zona T para que el resto de la cara siga luminosa.",
+   "sort": 3
+  },
+  {
+   "id": "seed-item-l4",
+   "scene_id": "seed-scene-labios",
+   "x": 82,
+   "y": 45,
+   "category": "Mejillas",
+   "brand": "[confirmar marca]",
+   "name": "Rubor compacto malva",
+   "use_text": "Rubor en polvo para dar color y frescura a las mejillas.",
+   "tip": "",
+   "sort": 4
+  },
+  {
+   "id": "seed-item-l5",
+   "scene_id": "seed-scene-labios",
+   "x": 10,
+   "y": 44,
+   "category": "Labios",
+   "brand": "L'Oréal Paris",
+   "name": "Labiales mate nude",
+   "use_text": "Labiales de larga duración en tonos nude y rosados.",
+   "tip": "",
+   "sort": 5
+  },
+  {
+   "id": "seed-item-l6",
+   "scene_id": "seed-scene-labios",
+   "x": 38,
+   "y": 46,
+   "category": "Labios",
+   "brand": "KIKO Milano",
+   "name": "3D Hydra Lipgloss",
+   "use_text": "Gloss con brillo para dar volumen y un acabado jugoso.",
+   "tip": "Un toque en el centro del labio sobre el labial mate cambia todo el look.",
+   "sort": 6
+  },
+  {
+   "id": "seed-item-l7",
+   "scene_id": "seed-scene-labios",
+   "x": 46,
+   "y": 37,
+   "category": "Labios",
+   "brand": "L'Oréal Paris",
+   "name": "Color Riche",
+   "use_text": "Labial cremoso y cómodo para usar muchas horas.",
+   "tip": "",
+   "sort": 7
+  },
+  {
+   "id": "seed-item-l8",
+   "scene_id": "seed-scene-labios",
+   "x": 62,
+   "y": 86,
+   "category": "Labios",
+   "brand": "Sephora Collection",
+   "name": "Labial rojo",
+   "use_text": "El rojo clásico para looks de noche y fiestas.",
+   "tip": "",
+   "sort": 8
+  },
+  {
+   "id": "seed-item-l9",
+   "scene_id": "seed-scene-labios",
+   "x": 80,
+   "y": 6,
+   "category": "Ojos",
+   "brand": "Sephora Collection",
+   "name": "Mini paleta de sombras",
+   "use_text": "Paleta compacta para retoques y ojos de color.",
+   "tip": "",
+   "sort": 9
+  }
+ ],
+ "faqs": [
+  {
+   "id": "seed-faq-1",
+   "question": "¿Vas a domicilio a todas las zonas?",
+   "answer": "Sí, trabajo 100% a domicilio en CABA y GBA Norte, Oeste y Sur. Los viáticos dependen de la zona y se calculan con el valor del viaje al momento de reservar.",
+   "sort": 1,
+   "visible": true
+  },
+  {
+   "id": "seed-faq-2",
+   "question": "¿Cuánto tiempo lleva el maquillaje?",
+   "answer": "Un maquillaje social lleva alrededor de 1 hora y con peinado, 2 horas. Para novias y quinceañeras calculo un mínimo de 2 horas, más la prueba previa de 3 horas.",
+   "sort": 2,
+   "visible": true
+  },
+  {
+   "id": "seed-faq-3",
+   "question": "¿Cómo reservo mi fecha?",
+   "answer": "Escribime con la fecha, la zona y el servicio. Te confirmo disponibilidad y presupuesto, y la fecha queda reservada con una seña del 10 al 15% por transferencia.",
+   "sort": 3,
+   "visible": true
+  },
+  {
+   "id": "seed-faq-4",
+   "question": "¿Cómo tengo que llegar al maquillaje?",
+   "answer": "Con la cara limpia, sin maquillaje y sin cremas pesadas. Si tenés alguna alergia o una piel sensible, contámelo cuando reserves.",
+   "sort": 4,
+   "visible": true
+  },
+  {
+   "id": "seed-faq-5",
+   "question": "¿Qué productos usás?",
+   "answer": "Trabajo con marcas como MAC, Givenchy, NYX, KIKO, L’Oréal y Anastasia Beverly Hills. Podés ver todo lo que llevo en la sección Mi maletín.",
+   "sort": 5,
+   "visible": true
+  },
+  {
+   "id": "seed-faq-6",
+   "question": "¿Las clases de automaquillaje son a domicilio?",
+   "answer": "Sí. Duran 1 o 2 horas y trabajamos con tus propios productos, para que aprendas técnicas que se adapten a tu cara y a tu día a día.",
+   "sort": 6,
+   "visible": true
+  }
+ ],
+ "reviews": [],
+ "settings": {
+  "google": {
+   "rating": null,
+   "count": null,
+   "url": "",
+   "review_url": ""
+  },
+  "contact": {
+   "whatsapp": "5491164674417",
+   "whatsapp_label": "+54 9 11 6467-4417",
+   "email": "contacto@delfinamakeup.com",
+   "instagram": "delfinaamakeup",
+   "tiktok": "delfinavictoriaa"
+  }
+ }
+}

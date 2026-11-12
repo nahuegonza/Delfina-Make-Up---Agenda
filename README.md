@@ -41,3 +41,16 @@ npm install
 cp .env.example .env.local   # completar los valores
 npm run dev
 ```
+
+## Web pública (delfinamakeup.com)
+
+La web vive en la carpeta `web/` (Next.js, se publica en **Netlify** con *Base directory* = `web`).
+Lee todo su contenido de este mismo Supabase y se edita desde la agenda, en **Mi web**:
+
+- **Consultas:** lo que llega del formulario (también llega por mail a `contacto@delfinamakeup.com`, vía `/api/consulta` y Resend).
+- **Fotos:** portada, portfolio, sobre mí, contacto y maletín. Se optimizan solas antes de subir (WebP en 480, 960 y 1600 px + miniatura borrosa).
+- **Servicios, Maletín (puntos sobre la foto), Reseñas de Google y Preguntas frecuentes** (el chat de la web responde con ellas).
+
+Puesta en marcha: correr `supabase/web.sql` en el SQL Editor y cargar las variables de `web/.env.example` en Netlify
+y las nuevas de `.env.example` (`NEXT_PUBLIC_WEB_URL`, `WEB_ORIGINS`, `EMAIL_INQUIRIES_TO`) en la agenda.
+Los cambios del admin aparecen en la web en menos de un minuto.
