@@ -5,7 +5,6 @@ import { waLink } from '@/lib/links';
 import { ICheck, IWhatsapp } from './Icons';
 
 const ZONES = ['CABA', 'GBA Norte', 'GBA Oeste', 'GBA Sur'];
-const API = (process.env.NEXT_PUBLIC_AGENDA_URL || '').replace(/\/$/, '');
 
 type State = 'idle' | 'sending' | 'done' | 'error';
 
@@ -31,13 +30,9 @@ export default function ContactForm({ services, whatsapp }: { services: ServiceR
     setError('');
     if (!f.name.trim()) return setError('Contame tu nombre.');
     if (!f.email.trim() && !f.phone.trim()) return setError('Dejame un mail o un teléfono para responderte.');
-    if (!API) {
-      setState('error');
-      return setError('El formulario todavía no está conectado. Escribime por WhatsApp.');
-    }
     setState('sending');
     try {
-      const res = await fetch(`${API}/api/consulta`, {
+      const res = await fetch('/api/consulta', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...f, elapsed: Date.now() - started.current }),

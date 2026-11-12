@@ -147,6 +147,12 @@ end $$;
 drop policy if exists "public_read" on public.web_kit_items;
 create policy "public_read" on public.web_kit_items for select to anon
   using (exists (select 1 from public.web_kit_scenes s where s.id = scene_id and s.visible));
+-- La web puede dejar consultas (solo agregar, nunca leer ni cambiar).
+drop policy if exists "public_insert" on public.web_inquiries;
+create policy "public_insert" on public.web_inquiries for insert to anon
+  with check (status = 'nueva');
+grant insert on public.web_inquiries to anon;
+
 drop policy if exists "public_read" on public.web_settings;
 create policy "public_read" on public.web_settings for select to anon using (true);
 
@@ -157,8 +163,7 @@ grant select, insert, update, delete on public.web_photos, public.web_services, 
   public.web_kit_items, public.web_reviews, public.web_faqs, public.web_settings, public.web_inquiries to authenticated;
 grant all on public.web_photos, public.web_services, public.web_kit_scenes, public.web_kit_items,
   public.web_reviews, public.web_faqs, public.web_settings, public.web_inquiries to service_role;
-revoke execute on function public.web_default_owner() from public, anon;
-grant execute on function public.web_default_owner() to authenticated, service_role;
+grant execute on function public.web_default_owner() to anon, authenticated, service_role;
 
 -- ---------- Fotos en Storage (carpeta pública "web") ----------
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
