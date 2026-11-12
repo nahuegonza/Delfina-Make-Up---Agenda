@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { IconCalendar, IconHome, IconPlus, IconSparkle, IconUsers } from './Icons';
+import { IconCalendar, IconGlobe, IconHome, IconPlus, IconSparkle, IconUsers } from './Icons';
 
 const LINKS = [
   { href: '/', label: 'Inicio', Icon: IconHome },
@@ -9,6 +9,7 @@ const LINKS = [
   { href: '/reservas/nueva', label: 'Nuevo', Icon: IconPlus, isNew: true },
   { href: '/clientas', label: 'Clientas', Icon: IconUsers },
   { href: '/servicios', label: 'Servicios', Icon: IconSparkle },
+  { href: '/web', label: 'Mi web', Icon: IconGlobe },
 ];
 
 /** Menú flotante de vidrio, igual en celular y computadora. */

@@ -301,3 +301,43 @@ legend { font-family: var(--serif); font-size: 26px; margin-bottom: 14px; paddin
 .login-card { width: 100%; max-width: 400px; }
 .desktop-only { display: none !important; }
 @media (min-width: 900px) { .desktop-only { display: flex !important; } .mobile-only { display: none !important; } }
+
+/* ---------- Mi web (admin de delfinamakeup.com) ---------- */
+.web-tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 2px; margin: 0 -2px; }
+.web-tabs::-webkit-scrollbar { display: none; }
+.web-tabs a {
+  flex: none; display: inline-flex; align-items: center; min-height: 42px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: rgba(255, 255, 255, 0.7); font-size: 14px; transition: background .15s ease;
+}
+.web-tabs a.on { background: var(--ink); color: var(--rose-ink); border-color: var(--ink); }
+.upload { display: grid; gap: 14px; }
+@media (min-width: 640px) { .upload { grid-template-columns: 220px 1fr; align-items: end; } }
+.dropzone {
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-align: center;
+  min-height: 96px; padding: 16px; border-radius: 22px; border: 1.5px dashed var(--mauve); background: var(--blush); cursor: pointer;
+  transition: background .15s ease, transform .1s ease;
+}
+.dropzone:hover { background: #f5d7dd; }
+.dropzone:active { transform: scale(0.99); }
+.dropzone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.dropzone.busy { flex-direction: row; gap: 10px; cursor: progress; }
+.spin { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--rose); border-right-color: transparent; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.photo-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.photo-grid li { display: flex; flex-direction: column; gap: 8px; }
+.photo-grid img { width: 100%; height: auto; max-height: 260px; object-fit: cover; border-radius: 18px; background: var(--blush); }
+.photo-grid .hidden-photo img { opacity: 0.4; }
+.photo-tools { display: grid; gap: 6px; }
+.photo-tools .input, .photo-tools .select { min-height: 40px; padding: 8px 12px; font-size: 14px; border-radius: 12px; }
+.kit-admin { display: grid; gap: 18px; }
+@media (min-width: 900px) { .kit-admin { grid-template-columns: 1.4fr 1fr; align-items: start; } }
+.kit-stage-admin { position: relative; border-radius: 20px; overflow: hidden; background: #2a1418; user-select: none; -webkit-user-select: none; }
+.kit-stage-admin.placing { cursor: crosshair; }
+.kit-stage-admin img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.kit-dot {
+  position: absolute; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%; border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.85); color: var(--rose-deep); font-weight: 600; font-size: 13px; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); display: grid; place-items: center; padding: 0;
+}
+.kit-dot.on, .kit-dot.new { background: var(--rose); color: #fff; transform: translate(-50%, -50%) scale(1.15); }
+.kit-dot.new { pointer-events: none; }
