@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { getContent } from '@/lib/content';
 
-// Recibe las consultas del formulario: las manda por mail a contacto@ (Resend)
+// Recibe las consultas del formulario: las manda por mail a contacto@ (Resend),
+// le manda una respuesta automática a la clienta si dejó su mail
 // y las guarda en Supabase para verlas en la agenda (Mi web → Consultas).
 export const dynamic = 'force-dynamic';
 
@@ -79,7 +81,37 @@ ${message ? `<p style="margin-top:16px;padding:14px;background:#fbf1f4;border-ra
     }
   }
 
-  // 2) Guardarla para la agenda
+  // 2) Respuesta automática a la clienta (solo si dejó su mail)
+  if (key && email) {
+    try {
+      const { settings } = await getContent();
+      const c = settings.contact;
+      const first = esc(name.split(/\s+/)[0]);
+      const wa = c.whatsapp ? `https://wa.me/${c.whatsapp}?text=${encodeURIComponent('¡Hola Delfi! Te escribí por la web.')}` : null;
+      const detalle = [service, event_date ? `el ${fecha}` : '', zone ? `en ${zone}` : ''].filter(Boolean).join(' ');
+      const html = `<div style="background:#fbf1f4;padding:28px 12px;font-family:Arial,sans-serif;color:#2a0f1f">
+<div style="max-width:520px;margin:0 auto;background:#ffffff;border-radius:18px;padding:28px">
+<p style="margin:0 0 6px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#9a7f8b">— Delfina Acuña Makeup</p>
+<h1 style="margin:0 0 16px;font-family:Georgia,serif;font-weight:400;font-size:28px;color:#2a0f1f">¡Gracias por escribirme, <em style="color:#7b024d">${first}</em>!</h1>
+<p style="margin:0 0 12px;line-height:1.6">Recibí tu consulta${detalle ? ` por <b>${esc(detalle)}</b>` : ''}. La leo con atención y te respondo a la brevedad con disponibilidad y presupuesto.</p>
+<p style="margin:0 0 20px;line-height:1.6">Si tu fecha está cerca o querés charlarlo antes, escribime por WhatsApp y lo vemos al toque.</p>
+${wa ? `<p style="margin:0 0 24px"><a href="${wa}" style="display:inline-block;background:#7b024d;color:#ffffff;text-decoration:none;padding:12px 22px;border-radius:999px;font-size:14px">Escribirme por WhatsApp</a></p>` : ''}
+<p style="margin:0;line-height:1.6">Con cariño,<br><em style="font-family:Georgia,serif;font-size:20px;color:#7b024d">Delfi</em></p>
+</div>
+<p style="max-width:520px;margin:14px auto 0;font-size:12px;color:#9a7f8b;text-align:center">Maquillaje a domicilio en CABA y GBA${c.instagram ? ` · Instagram @${esc(c.instagram)}` : ''}<br>Este es un mensaje automático: si respondés este mail, me llega directamente.</p>
+</div>`;
+      const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ from, to: [email], subject: '¡Recibí tu consulta! 💕', html, reply_to: to }),
+      });
+      if (!res.ok) console.error('consulta: la respuesta automática falló', res.status, await res.text().catch(() => ''));
+    } catch (e) {
+      console.error('consulta: no se pudo mandar la respuesta automática', e);
+    }
+  }
+
+  // 3) Guardarla para la agenda
   let saved = false;
   const url = process.env.SUPABASE_URL?.trim().replace(/\/$/, '');
   const anon = process.env.SUPABASE_ANON_KEY?.trim();
