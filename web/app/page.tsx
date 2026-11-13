@@ -3,6 +3,7 @@ import { waLink, WA_HELLO } from '@/lib/links';
 import Nav from '@/components/Nav';
 import Photo from '@/components/Photo';
 import Portfolio from '@/components/Portfolio';
+import ServiceCta from '@/components/ServiceCta';
 import Kit from '@/components/Kit';
 import Faq from '@/components/Faq';
 import Chat from '@/components/Chat';
@@ -121,6 +122,7 @@ export default async function Home() {
                         <span className="price text">{s.price_label}</span>
                       )}
                     </div>
+                    <ServiceCta title={s.title} whatsapp={contact.whatsapp} featured={s.featured} />
                   </article>
                 </div>
               ))}

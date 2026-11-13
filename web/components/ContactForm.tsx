@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ServiceRow } from '@/lib/content';
 import { waLink } from '@/lib/links';
 import { ICheck, IWhatsapp } from './Icons';
@@ -14,6 +14,20 @@ export default function ContactForm({ services, whatsapp }: { services: ServiceR
   const [error, setError] = useState('');
   const [f, setF] = useState({ name: '', email: '', phone: '', event_date: '', service: services[0]?.title ?? '', zone: 'CABA', message: '', website: '' });
   const started = useRef(Date.now());
+  const [picked, setPicked] = useState(false);
+
+  // Cuando tocan "Reservar fecha" en un servicio, el formulario llega con ese servicio elegido.
+  useEffect(() => {
+    const onPick = (e: Event) => {
+      const title = (e as CustomEvent<string>).detail;
+      setF((v) => ({ ...v, service: title }));
+      setState('idle');
+      setPicked(true);
+      setTimeout(() => setPicked(false), 1600);
+    };
+    window.addEventListener('pick-service', onPick);
+    return () => window.removeEventListener('pick-service', onPick);
+  }, []);
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setF({ ...f, [k]: e.target.value });
 
   const waText = [
@@ -60,14 +74,14 @@ export default function ContactForm({ services, whatsapp }: { services: ServiceR
   }
 
   return (
-    <form className="form glass-dark" aria-label="Reservá tu fecha" onSubmit={submit} noValidate>
+    <form id="form-reserva" className="form glass-dark" aria-label="Reservá tu fecha" onSubmit={submit} noValidate>
       <h3>Reservá tu fecha</h3>
       <label className="field">Nombre<input name="name" autoComplete="name" placeholder="Tu nombre" value={f.name} onChange={set('name')} required maxLength={120} /></label>
-      <label className="field">Fecha del evento<input type="date" name="event_date" value={f.event_date} onChange={set('event_date')} /></label>
+      <label className="field field-date">Fecha del evento<input type="date" name="event_date" value={f.event_date} onChange={set('event_date')} /></label>
       <label className="field">Mail<input type="email" name="email" autoComplete="email" inputMode="email" placeholder="tu@mail.com" value={f.email} onChange={set('email')} maxLength={200} /></label>
       <label className="field">Teléfono<input type="tel" name="phone" autoComplete="tel" inputMode="tel" placeholder="11 2345 6789" value={f.phone} onChange={set('phone')} maxLength={40} /></label>
       <label className="field">Servicio
-        <select name="service" value={f.service} onChange={set('service')}>
+        <select name="service" className={picked ? 'flash' : ''} value={f.service} onChange={set('service')}>
           {services.map((s) => <option key={s.id}>{s.title}</option>)}
         </select>
       </label>

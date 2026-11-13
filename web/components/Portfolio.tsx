@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import type { Photo as P } from '@/lib/content';
 import Photo from './Photo';
+import Lightbox from './Lightbox';
 
 const LABEL: Record<string, string> = { novias: 'Novias', social: 'Social', egresadas: 'Egresadas', editorial: 'Editorial' };
 
@@ -10,6 +11,7 @@ export default function Portfolio({ photos }: { photos: P[] }) {
   const filters = ['todas', ...['novias', 'social', 'egresadas', 'editorial'].filter((c) => cats.includes(c))];
   const [f, setF] = useState('todas');
   const [all, setAll] = useState(false);
+  const [open, setOpen] = useState<number | null>(null);
   const shown = f === 'todas' ? photos : photos.filter((p) => p.category === f);
 
   return (
@@ -32,7 +34,9 @@ export default function Portfolio({ photos }: { photos: P[] }) {
       <div className={`pf ${all ? '' : 'short'}`} key={f}>
         {shown.map((p, i) => (
           <figure key={p.id} style={{ animationDelay: `${Math.min(i, 8) * 0.05}s` }}>
-            <Photo photo={p} sizes="(max-width: 720px) 50vw, 25vw" style={{ aspectRatio: `${p.width} / ${p.height}` }} />
+            <button type="button" className="pf-open" aria-label={`Ver en pantalla completa: ${p.alt || 'foto del portfolio'}`} onClick={() => setOpen(i)}>
+              <Photo photo={p} sizes="(max-width: 720px) 50vw, 25vw" style={{ aspectRatio: `${p.width} / ${p.height}` }} />
+            </button>
             {p.category && <figcaption className="glass-dark">{LABEL[p.category]}</figcaption>}
           </figure>
         ))}
@@ -40,6 +44,7 @@ export default function Portfolio({ photos }: { photos: P[] }) {
       {!all && shown.length > 6 && (
         <button type="button" className="btn btn-line pf-more" onClick={() => setAll(true)}>Ver los {shown.length} trabajos</button>
       )}
+      {open !== null && <Lightbox photos={shown} index={open} onClose={() => setOpen(null)} />}
     </>
   );
 }
