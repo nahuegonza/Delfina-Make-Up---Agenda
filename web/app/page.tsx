@@ -22,18 +22,36 @@ export default async function Home() {
   const wa = waLink(contact.whatsapp, WA_HELLO);
   const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://delfinamakeup.com';
 
+  // Datos estructurados para Google: negocio de belleza a domicilio con sus servicios y precios orientativos.
+  const offers = c.services.map((s) => {
+    const n = Number(s.price_label.replace(/[^\d]/g, ''));
+    const usd = /usd/i.test(s.price_label) && n > 0;
+    return {
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: s.title, description: s.description },
+      ...(usd ? { priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', ...(s.price_prefix ? { minPrice: n } : { price: n }) } } : {}),
+    };
+  });
+  const prices = c.services.map((s) => (/usd/i.test(s.price_label) ? Number(s.price_label.replace(/[^\d]/g, '')) : 0)).filter((n) => n > 0);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BeautySalon',
+    '@id': `${SITE}/#negocio`,
     name: 'Delfina Acuña Makeup',
-    description: 'Maquilladora profesional a domicilio en CABA y GBA.',
+    description: 'Maquilladora profesional a domicilio en CABA y GBA: novias, quinceañeras, egresadas, eventos sociales, clases de automaquillaje y diseño de cejas.',
     url: SITE,
     image: `${SITE}/og.jpg`,
+    logo: `${SITE}/icon.png`,
     telephone: `+${contact.whatsapp}`,
     email: contact.email,
-    areaServed: ['Ciudad Autónoma de Buenos Aires', 'Gran Buenos Aires'],
-    sameAs: [`https://instagram.com/${contact.instagram}`, `https://tiktok.com/@${contact.tiktok}`],
-    ...(google.rating && google.count ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: google.rating, reviewCount: google.count } } : {}),
+    address: { '@type': 'PostalAddress', addressLocality: 'Buenos Aires', addressRegion: 'Buenos Aires', addressCountry: 'AR' },
+    areaServed: [
+      { '@type': 'City', name: 'Ciudad Autónoma de Buenos Aires' },
+      { '@type': 'AdministrativeArea', name: 'Gran Buenos Aires' },
+    ],
+    ...(prices.length ? { priceRange: `USD ${Math.min(...prices)} – ${Math.max(...prices)}` } : {}),
+    makesOffer: offers,
+    sameAs: [`https://instagram.com/${contact.instagram}`, `https://tiktok.com/@${contact.tiktok}`, ...(google.url ? [google.url] : [])],
   };
 
   return (
@@ -45,7 +63,11 @@ export default async function Home() {
       <div className="orb" style={{ width: 560, height: 560, left: '30%', top: 3900, background: 'var(--orb3)' }} />
       <div className="orb" style={{ width: 600, height: 600, right: -200, top: 5700, background: 'var(--orb2)' }} />
 
-      <Nav />
+      <Nav hide={[
+        ...(c.portfolio.length ? [] : ['#portfolio']),
+        ...(c.kit.length ? [] : ['#maletin']),
+        ...(c.faqs.length ? [] : ['#faq']),
+      ]} />
 
       <main id="contenido">
         <div className="hero" id="inicio">
@@ -240,6 +262,10 @@ export default async function Home() {
               <img className="logo-l" src="/brand/logo-h-plum.png" alt="Delfina Acuña Make Up Artist" width={900} height={122} />
               <img className="logo-d" src="/brand/logo-h-white.png" alt="Delfina Acuña Make Up Artist" width={900} height={122} />
               <span>Maquilladora profesional · Buenos Aires</span>
+              <nav className="foot-links" aria-label="Información legal">
+                <a href="/aviso-legal">Aviso legal</a>
+                <a href="/privacidad">Privacidad</a>
+              </nav>
               <span>© {new Date().getFullYear()} Delfina Acuña</span>
             </footer>
           </div>

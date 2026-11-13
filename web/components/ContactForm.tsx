@@ -87,7 +87,10 @@ export default function ContactForm({ services, whatsapp }: { services: ServiceR
       <button className="btn btn-send" type="submit" disabled={state === 'sending'}>
         {state === 'sending' ? (<><span className="spinner" aria-hidden="true" /> Enviando…</>) : 'Enviar consulta'}
       </button>
-      <small>Te respondo dentro de las 24 horas. También podés <a href={waLink(whatsapp, waText)} target="_blank" rel="noopener" style={{ color: '#fff' }}>escribirme por WhatsApp</a>.</small>
+      <small>
+        Al enviar aceptás que use tus datos solo para responderte, según la <a href="/privacidad" style={{ color: '#fff' }}>política de privacidad</a>.
+        Te respondo dentro de las 24 horas, o <a href={waLink(whatsapp, waText)} target="_blank" rel="noopener" style={{ color: '#fff' }}>escribime por WhatsApp</a>.
+      </small>
     </form>
   );
 }

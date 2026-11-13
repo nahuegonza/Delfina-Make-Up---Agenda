@@ -11,9 +11,11 @@ const LINKS = [
   { href: '#faq', label: 'Preguntas', long: 'Preguntas frecuentes' },
 ];
 
-export default function Nav() {
+/** base: '/' en páginas que no son el inicio. hide: secciones vacías que no deben aparecer en el menú. */
+export default function Nav({ base = '', hide = [] }: { base?: string; hide?: string[] }) {
   const [dark, setDark] = useState(false);
   const [open, setOpen] = useState(false);
+  const links = LINKS.filter((l) => !hide.includes(l.href)).map((l) => ({ ...l, href: base + l.href }));
 
   useEffect(() => {
     setDark(document.documentElement.dataset.theme === 'dark');
@@ -32,12 +34,12 @@ export default function Nav() {
   return (
     <header className="nav">
       <nav className="nav-in glass" aria-label="Principal">
-        <a href="#inicio" className="nav-logo" aria-label="Delfina Acuña, inicio" onClick={() => setOpen(false)}>
+        <a href={base ? '/' : '#inicio'} className="nav-logo" aria-label="Delfina Acuña, inicio" onClick={() => setOpen(false)}>
           <img className="logo-l" src="/brand/logo-h-plum.png" alt="Delfina Acuña Make Up Artist" width={900} height={122} />
           <img className="logo-d" src="/brand/logo-h-white.png" alt="" width={900} height={122} />
         </a>
         <div className="nav-links">
-          {LINKS.filter((l) => !l.mobileOnly).map((l) => (
+          {links.filter((l) => !l.mobileOnly).map((l) => (
             <a key={l.href} href={l.href}>{l.label}</a>
           ))}
         </div>
@@ -45,7 +47,7 @@ export default function Nav() {
           <button className="icon-btn" type="button" onClick={toggleTheme} aria-label={dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}>
             {dark ? <ISun /> : <IMoon />}
           </button>
-          <a className="btn btn-solid nav-cta" href="#contacto">Reservar fecha</a>
+          <a className="btn btn-solid nav-cta" href={`${base}#contacto`}>Reservar fecha</a>
           <button className="icon-btn burger" type="button" aria-expanded={open} aria-controls="menu-movil" aria-label={open ? 'Cerrar menú' : 'Abrir menú'} onClick={() => setOpen(!open)}>
             {open ? <IClose /> : <IMenu />}
           </button>
@@ -53,12 +55,12 @@ export default function Nav() {
       </nav>
       {open && (
         <div id="menu-movil" className="sheet glass">
-          {LINKS.map((l) => (
+          {links.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
               {l.long} <span aria-hidden="true">→</span>
             </a>
           ))}
-          <a className="btn btn-solid" href="#contacto" onClick={() => setOpen(false)}>Reservar fecha</a>
+          <a className="btn btn-solid" href={`${base}#contacto`} onClick={() => setOpen(false)}>Reservar fecha</a>
         </div>
       )}
     </header>

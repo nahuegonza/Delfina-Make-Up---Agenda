@@ -23,8 +23,8 @@ export default function Photo({ photo, sizes, className = '', priority, alt, sty
 
   return (
     <div
-      className={`ph ${photo.blur ? '' : 'ph-shimmer'} ${loaded ? 'loaded' : ''} ${className}`}
-      style={{ backgroundImage: photo.blur ? `url("${photo.blur}")` : undefined, ...style }}
+      className={`ph ${priority ? 'ph-now' : photo.blur ? '' : 'ph-shimmer'} ${loaded ? 'loaded' : ''} ${className}`}
+      style={{ backgroundImage: photo.blur && !priority ? `url("${photo.blur}")` : undefined, ...style }}
     >
       <img
         ref={ref}
