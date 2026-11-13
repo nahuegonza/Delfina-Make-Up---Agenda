@@ -76,15 +76,15 @@ export default function ContactForm({ services, whatsapp }: { services: ServiceR
   return (
     <form id="form-reserva" className="form glass-dark" aria-label="Reservá tu fecha" onSubmit={submit} noValidate>
       <h3>Reservá tu fecha</h3>
-      <label className="field">Nombre<input name="name" autoComplete="name" placeholder="Tu nombre" value={f.name} onChange={set('name')} required maxLength={120} /></label>
-      <label className="field field-date">Fecha del evento<input type="date" name="event_date" value={f.event_date} onChange={set('event_date')} /></label>
-      <label className="field">Mail<input type="email" name="email" autoComplete="email" inputMode="email" placeholder="tu@mail.com" value={f.email} onChange={set('email')} maxLength={200} /></label>
+      <label className="field full">Nombre<input name="name" autoComplete="name" placeholder="Tu nombre" value={f.name} onChange={set('name')} required maxLength={120} /></label>
       <label className="field">Teléfono<input type="tel" name="phone" autoComplete="tel" inputMode="tel" placeholder="11 2345 6789" value={f.phone} onChange={set('phone')} maxLength={40} /></label>
-      <label className="field">Servicio
+      <label className="field">Mail<input type="email" name="email" autoComplete="email" inputMode="email" placeholder="tu@mail.com" value={f.email} onChange={set('email')} maxLength={200} /></label>
+      <label className="field full">Servicio
         <select name="service" className={picked ? 'flash' : ''} value={f.service} onChange={set('service')}>
           {services.map((s) => <option key={s.id}>{s.title}</option>)}
         </select>
       </label>
+      <label className="field field-date">Fecha del evento<input type="date" name="event_date" className={f.event_date ? '' : 'empty'} value={f.event_date} onChange={set('event_date')} /></label>
       <label className="field">Zona
         <select name="zone" value={f.zone} onChange={set('zone')}>
           {ZONES.map((z) => <option key={z}>{z}</option>)}
