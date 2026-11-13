@@ -6,3 +6,7 @@
 [build.environment]
   NODE_VERSION = "22"
   NEXT_TELEMETRY_DISABLED = "1"
+
+# Runtime de Next.js para Netlify (convierte la página, el ISR y /api/consulta en funciones).
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

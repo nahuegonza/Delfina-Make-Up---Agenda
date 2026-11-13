@@ -45,6 +45,9 @@ export async function POST(request: Request) {
   const date = clean(body.event_date, 10);
   const event_date = /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : null;
 
+  // Spam típico: mensajes con varios links.
+  if ((message.match(/https?:\/\/|www\./gi) ?? []).length > 1) return fail('Por seguridad no se pueden enviar links. Escribime por WhatsApp si necesitás mandarme uno.');
+
   if (!name) return fail('Contame tu nombre.');
   if (!email && !phone) return fail('Dejame un mail o un teléfono para responderte.');
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Revisá el mail, parece que tiene un error.');

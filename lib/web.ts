@@ -180,6 +180,21 @@ export async function optimizePhoto(file: File): Promise<Optimized> {
   };
 }
 
+// Descripción automática si la dejás vacía (sirve para Google y para quienes usan lector de pantalla).
+const DEFAULT_ALT: Record<string, string> = {
+  novias: 'Maquillaje de novia por Delfina Acuña',
+  social: 'Maquillaje social por Delfina Acuña',
+  egresadas: 'Maquillaje de egresada por Delfina Acuña',
+  editorial: 'Maquillaje editorial por Delfina Acuña',
+  portada: 'Delfina Acuña maquillando a una clienta',
+  sobre_mi: 'Delfina Acuña, maquilladora profesional',
+  contacto: '',
+  maletin: 'Productos del maletín de Delfina Acuña',
+};
+export function defaultAlt(section: WebSection, category?: WebCategory | null) {
+  return section === 'portfolio' ? DEFAULT_ALT[category ?? 'social'] : DEFAULT_ALT[section];
+}
+
 /** Optimiza, sube a Storage y crea la fila en web_photos. */
 export async function uploadPhoto(
   file: File,
@@ -204,7 +219,7 @@ export async function uploadPhoto(
     .insert({
       section: meta.section,
       category: meta.section === 'portfolio' ? meta.category ?? 'social' : null,
-      alt: meta.alt ?? '',
+      alt: meta.alt?.trim() || defaultAlt(meta.section, meta.category),
       base_path: folder,
       widths: opt.files.map((f) => f.width),
       ext: opt.ext,

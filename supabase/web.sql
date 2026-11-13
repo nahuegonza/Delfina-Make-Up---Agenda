@@ -7,7 +7,9 @@
 create extension if not exists pgcrypto;
 
 -- Dueña por defecto: la usuaria de la agenda (para filas que crea el servidor).
-create or replace function public.web_default_owner() returns uuid
+create schema if not exists private;
+grant usage on schema private to anon, authenticated, service_role;
+create or replace function private.web_default_owner() returns uuid
 language sql stable security definer set search_path = public, auth as $$
   select coalesce(auth.uid(), (select id from auth.users order by created_at limit 1));
 $$;
@@ -15,7 +17,7 @@ $$;
 -- ---------- Fotos (portfolio, portada, sobre mí, contacto, maletín) ----------
 create table if not exists public.web_photos (
   id          uuid primary key default gen_random_uuid(),
-  owner_id    uuid not null default public.web_default_owner() references auth.users(id) on delete cascade,
+  owner_id    uuid not null default private.web_default_owner() references auth.users(id) on delete cascade,
   section     text not null default 'portfolio'
               check (section in ('portfolio','portada','sobre_mi','contacto','maletin')),
   category    text check (category in ('novias','social','egresadas','editorial')),
@@ -36,7 +38,7 @@ create index if not exists web_photos_section_idx on public.web_photos (section,
 -- ---------- Servicios de la web ----------
 create table if not exists public.web_services (
   id             uuid primary key default gen_random_uuid(),
-  owner_id       uuid not null default public.web_default_owner() references auth.users(id) on delete cascade,
+  owner_id       uuid not null default private.web_default_owner() references auth.users(id) on delete cascade,
   title          text not null,
   eyebrow        text not null default '',
   description    text not null default '',
@@ -52,7 +54,7 @@ create table if not exists public.web_services (
 -- ---------- Maletín: escenas (fotos) y productos (puntos) ----------
 create table if not exists public.web_kit_scenes (
   id          uuid primary key default gen_random_uuid(),
-  owner_id    uuid not null default public.web_default_owner() references auth.users(id) on delete cascade,
+  owner_id    uuid not null default private.web_default_owner() references auth.users(id) on delete cascade,
   label       text not null,
   hint        text not null default '',
   photo_id    uuid references public.web_photos(id) on delete set null,
@@ -63,7 +65,7 @@ create table if not exists public.web_kit_scenes (
 
 create table if not exists public.web_kit_items (
   id          uuid primary key default gen_random_uuid(),
-  owner_id    uuid not null default public.web_default_owner() references auth.users(id) on delete cascade,
+  owner_id    uuid not null default private.web_default_owner() references auth.users(id) on delete cascade,
   scene_id    uuid not null references public.web_kit_scenes(id) on delete cascade,
   x           numeric(5,2) not null check (x between 0 and 100),
   y           numeric(5,2) not null check (y between 0 and 100),
@@ -80,7 +82,7 @@ create index if not exists web_kit_items_scene_idx on public.web_kit_items (scen
 -- ---------- Reseñas de Google ----------
 create table if not exists public.web_reviews (
   id          uuid primary key default gen_random_uuid(),
-  owner_id    uuid not null default public.web_default_owner() references auth.users(id) on delete cascade,
+  owner_id    uuid not null default private.web_default_owner() references auth.users(id) on delete cascade,
   author      text not null,
   when_label  text not null default '',
   rating      int not null default 5 check (rating between 1 and 5),
@@ -93,7 +95,7 @@ create table if not exists public.web_reviews (
 -- ---------- Preguntas frecuentes (también las usa el chat) ----------
 create table if not exists public.web_faqs (
   id          uuid primary key default gen_random_uuid(),
-  owner_id    uuid not null default public.web_default_owner() references auth.users(id) on delete cascade,
+  owner_id    uuid not null default private.web_default_owner() references auth.users(id) on delete cascade,
   question    text not null,
   answer      text not null,
   sort        int not null default 0,
@@ -104,7 +106,7 @@ create table if not exists public.web_faqs (
 -- ---------- Ajustes (Google, contacto) ----------
 create table if not exists public.web_settings (
   key         text primary key,
-  owner_id    uuid not null default public.web_default_owner() references auth.users(id) on delete cascade,
+  owner_id    uuid not null default private.web_default_owner() references auth.users(id) on delete cascade,
   value       jsonb not null default '{}'::jsonb,
   updated_at  timestamptz not null default now()
 );
@@ -112,7 +114,7 @@ create table if not exists public.web_settings (
 -- ---------- Consultas que llegan desde el formulario de la web ----------
 create table if not exists public.web_inquiries (
   id          uuid primary key default gen_random_uuid(),
-  owner_id    uuid not null default public.web_default_owner() references auth.users(id) on delete cascade,
+  owner_id    uuid not null default private.web_default_owner() references auth.users(id) on delete cascade,
   name        text not null check (char_length(name) between 1 and 120),
   email       text check (email is null or char_length(email) <= 200),
   phone       text check (phone is null or char_length(phone) <= 40),
@@ -163,7 +165,8 @@ grant select, insert, update, delete on public.web_photos, public.web_services, 
   public.web_kit_items, public.web_reviews, public.web_faqs, public.web_settings, public.web_inquiries to authenticated;
 grant all on public.web_photos, public.web_services, public.web_kit_scenes, public.web_kit_items,
   public.web_reviews, public.web_faqs, public.web_settings, public.web_inquiries to service_role;
-grant execute on function public.web_default_owner() to anon, authenticated, service_role;
+revoke execute on function private.web_default_owner() from public;
+grant execute on function private.web_default_owner() to anon, authenticated, service_role;
 
 -- ---------- Fotos en Storage (carpeta pública "web") ----------
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
